@@ -1,0 +1,34 @@
+<h3>Static</h3>
+<style>
+  .progress {
+    -webkit-transition: width 1s ease-out;
+    transition: width 1s ease-out;
+  }
+</style>
+
+<div class="row">
+  <div class="columns small-4">
+    <progressbar value="55"></progressbar>
+  </div>
+  <div class="columns small-4">
+    <progressbar value="22" type="warning">22%</progressbar>
+  </div>
+  <div class="columns small-4">
+    <!--TODO: Bug: max is not converted to number-->
+    <progressbar max="200" value="166" type="alert"><i>166 / 200</i></progressbar>
+  </div>
+</div>
+
+<hr/>
+<h3>Dynamic <button class="button" type="button" (click)="random()">Randomize</button></h3>
+<!--TODO: Bug: transition not working-->
+<progressbar [max]="max" [value]="dynamic">
+  <span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span>
+</progressbar>
+
+<small><em>No animation</em></small>
+<progressbar [animate]="false" [value]="dynamic" type="success"><b>{{dynamic}}%</b></progressbar>
+
+<small><em>Object (changes type based on value)</em></small>
+<progressbar class="progress-striped active" [value]="dynamic" [type]="type">{{type}}
+  <i *ngIf="showWarning">!!!Watch out !!!</i></progressbar>

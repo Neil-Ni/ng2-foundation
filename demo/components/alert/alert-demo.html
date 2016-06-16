@@ -1,0 +1,8 @@
+<alert *ngFor="let alert of alerts;let i = index"
+       [type]="alert.type"
+       [closeable]="true"
+       (close)="closeAlert(i)">
+  {{ alert?.msg }}
+</alert>
+
+<button type="button" class="button" (click)="addAlert()">Add Alert</button>

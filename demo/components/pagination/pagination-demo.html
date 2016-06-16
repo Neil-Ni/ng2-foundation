@@ -1,0 +1,50 @@
+<h4>Default</h4>
+<pagination [totalItems]="totalItems"
+            [(ngModel)]="currentPage"
+            (pageChanged)="pageChanged($event)"></pagination>
+
+<pagination [boundaryLinks]="true"
+            [totalItems]="totalItems"
+            [(ngModel)]="currentPage"
+            class="pagination-sm"
+            previousText="&lsaquo;"
+            nextText="&rsaquo;"
+            firstText="&laquo;"
+            lastText="&raquo;"></pagination>
+
+<pagination [directionLinks]="false"
+            [boundaryLinks]="true"
+            [totalItems]="totalItems"
+            [(ngModel)]="currentPage"></pagination>
+
+<pagination [directionLinks]="false"
+            [totalItems]="totalItems"
+            [(ngModel)]="currentPage"
+            (numPages)="smallnumPages = $event"></pagination>
+
+<pre>The selected page no: {{currentPage}}</pre>
+<button class="button secondary" (click)="setPage(3)">Set current page to: 3</button>
+
+<hr />
+<h4>Pager</h4>
+<pager [totalItems]="totalItems"
+       [(ngModel)]="currentPage"
+       onPageChanged="pageChanged($event)"></pager>
+
+<hr />
+<h4>Limit the maximum visible buttons</h4>
+<pagination [totalItems]="bigTotalItems"
+            [(ngModel)]="bigCurrentPage"
+            [maxSize]="maxSize"
+            class="pagination-sm"
+            [boundaryLinks]="true"></pagination>
+
+<pagination [totalItems]="bigTotalItems"
+            [(ngModel)]="bigCurrentPage"
+            [maxSize]="maxSize"
+            class="pagination-sm"
+            [boundaryLinks]="true"
+            [rotate]="false"
+            (numPages)="numPages = $event"></pagination>
+
+<pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>

@@ -1,0 +1,37 @@
+<p>
+  <button class="button small" (click)="status.open = !status.open">
+    Toggle last panel
+  </button>
+  <button class="button small" (click)="status.isFirstDisabled = ! status.isFirstDisabled">
+    Enable / Disable first panel
+  </button>
+</p>
+
+<div class="checkbox">
+  <label>
+    <input type="checkbox" [(ngModel)]="oneAtATime">
+    Open only one at a time
+  </label>
+</div>
+
+<accordion [closeOthers]="oneAtATime">
+  <accordion-group heading="Static Header, initially expanded"
+                   [isOpen]="status.isFirstOpen"
+                   [isDisabled]="status.isFirstDisabled">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group *ngFor="let group of groups" [heading]="group.title">
+    {{ group?.content }}
+  </accordion-group>
+  <accordion-group heading="Dynamic Body Content">
+    <p>The body of the accordion group grows to fit the contents</p>
+    <button class="button small" (click)="addItem()">Add Item</button>
+    <div *ngFor="let item of items">{{item}}</div>
+  </accordion-group>
+  <accordion-group let group [isOpen]="status.open">
+    <div accordion-heading>
+      I can have markup, too!
+    </div>
+    This is just some content to illustrate fancy headings.
+  </accordion-group>
+</accordion>

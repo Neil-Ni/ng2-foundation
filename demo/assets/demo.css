@@ -1,0 +1,194 @@
+img.logo {
+  margin: 50px auto 50px auto;
+  width: 275px; }
+
+div[role=main] section.demo {
+  padding-top: 30px; }
+
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5; }
+
+.code pre, .code code {
+  border: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.tabs dd.active a {
+  background-color: #FFF; }
+
+.code .tabs-content > .content {
+  padding: 0;
+  width: 100%; }
+
+@media only screen and (max-device-width: 480px) {
+  #plunk-btn {
+    display: none; } }
+
+/**
+ * Animations
+ */
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.2.3
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+.tooltip.ng-enter {
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-duration: 0.25s;
+  transition-delay: 0s;
+  opacity: 0;
+  transition-property: opacity; }
+
+.tooltip.ng-enter.ng-enter-active {
+  opacity: 1; }
+
+.tooltip.ng-leave {
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-duration: 0.25s;
+  transition-delay: 0s;
+  opacity: 1;
+  transition-property: opacity; }
+
+.tooltip.ng-leave.ng-leave-active {
+  opacity: 0; }
+
+.reveal-overlay.ng-enter {
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  opacity: 0;
+  transition-property: opacity; }
+
+.reveal-overlay.ng-enter.ng-enter-active {
+  opacity: 1; }
+
+.reveal-overlay.ng-leave {
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  opacity: 1;
+  transition-property: opacity; }
+
+.reveal-overlay.ng-leave.ng-leave-active {
+  opacity: 0; }
+
+.reveal.ng-enter {
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier;
+  transition-delay: 0s;
+  transform: translateY(-100%);
+  transition-property: transform, opacity;
+  opacity: 0;
+  backface-visibility: hidden; }
+
+.reveal.ng-enter.ng-enter-active {
+  transform: translateY(0);
+  opacity: 1; }
+
+.reveal.ng-leave {
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-duration: 0.25s;
+  transform: scale(1);
+  transition-property: transform, opacity;
+  opacity: 1; }
+
+.reveal.ng-leave.ng-leave-active {
+  transform: scale(0);
+  opacity: 0; }
+
+.alert-box {
+  background-color: #5592BB; }
+
+.ng-submitted .ng-invalid:not(:focus), .ng-touched.ng-invalid:not(:focus) {
+  background-color: rgba(236, 88, 64, 0.1);
+  border-color: #ec5840; }
+
+.marketing-topbar {
+  background: #121212;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  z-index: 2;
+  position: relative; }
+  .marketing-topbar::before, .marketing-topbar::after {
+    content: ' ';
+    display: table; }
+  .marketing-topbar::after {
+    clear: both; }
+  .marketing-topbar ul:first-child {
+    float: left; }
+  .marketing-topbar ul:last-child {
+    float: right; }
+  .marketing-topbar .topbar-title > a {
+    font-size: 1rem;
+    opacity: 0.9; }
+    .marketing-topbar .topbar-title > a > img {
+      position: relative;
+      top: -1px; }
+  .marketing-topbar .menu a {
+    height: 45px;
+    line-height: 45px !important;
+    color: #e6e6e6;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important; }
+    .marketing-topbar .menu a:hover:not(.button), .marketing-topbar .menu a:focus {
+      background: black; }
+    .marketing-topbar .menu a.button {
+      border-radius: 0;
+      box-shadow: 0 0 0 transparent; }
+  .marketing-topbar .title {
+    color: #8a8a8a;
+    padding: 10px;
+    padding-left: 15px;
+    font-size: 0.8em;
+    background: #2c2c2c; }
+  .marketing-topbar .is-active a {
+    background: black; }
+  .marketing-topbar .menu img {
+    position: relative;
+    top: -2px; }
+  .marketing-topbar .menu:last-child {
+    border-left: 1px solid #4e4e4e; }
+  .marketing-topbar .menu li:not(:last-child) {
+    border-right: 1px solid #4e4e4e; }
+  .marketing-topbar .dropdown.menu .submenu {
+    border: 0; }
+  .marketing-topbar .opens-right a {
+    padding-right: 1rem !important; }
+  .marketing-topbar .opens-right a::after {
+    display: none !important; }
+
+.mobile-ofc {
+  background: #121212;
+  font-size: 0.8125rem;
+  font-weight: bold; }
+  .mobile-ofc .menu a {
+    height: 45px;
+    line-height: 45px;
+    color: #e6e6e6;
+    padding-top: 0;
+    padding-bottom: 0; }
+    .mobile-ofc .menu a:hover:not(.button), .mobile-ofc .menu a:focus {
+      background: black; }
+    .mobile-ofc .menu a.button {
+      border-radius: 0;
+      box-shadow: 0 0 0 transparent; }
+  .mobile-ofc .title {
+    color: #8a8a8a;
+    padding: 10px;
+    padding-left: 15px;
+    font-size: 0.8em;
+    background: #2c2c2c; }
+
+.off-canvas a.close-button {
+  color: #e6e6e6; }
+
+.off-canvas .close-button:hover, .off-canvas .close-button:focus {
+  color: #e6e6e6; }

@@ -1,0 +1,26 @@
+<h4>Single toggle</h4>
+<pre class="card card-block card-header">{{singleModel}}</pre>
+<button type="button" class="button"
+        [(ngModel)]="singleModel" btnCheckbox
+        btnCheckboxTrue="1" btnCheckboxFalse="0">
+  Single Toggle
+</button>
+<h4>Checkbox</h4>
+<pre class="card card-block card-header">
+  Model via JsonPipe: {{checkModel | json}}</pre>
+<pre class="card card-block card-header">
+Left: {{checkModel.left}}
+Middle: {{checkModel.middle}}
+Right: {{checkModel.right}}</pre>
+<div class="button-group">
+  <button type="button" class="button" [(ngModel)]="checkModel.left" btnCheckbox>Left</button>
+  <button type="button" class="button" [(ngModel)]="checkModel.middle" btnCheckbox>Middle</button>
+  <button type="button" class="button" [(ngModel)]="checkModel.right" btnCheckbox>Right</button>
+</div>
+<h4>Radio &amp; Uncheckable Radio</h4>
+<pre class="card card-block card-header">{{radioModel || 'null'}}</pre>
+<div class="button-group">
+  <button type="button" class="button" [(ngModel)]="radioModel" btnRadio="Left">Left</button>
+  <button type="button" class="button" [(ngModel)]="radioModel" btnRadio="Middle">Middle</button>
+  <button type="button" class="button" [(ngModel)]="radioModel" btnRadio="Right">Right</button>
+</div>
