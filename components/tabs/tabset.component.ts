@@ -1,7 +1,7 @@
-import {Component, OnInit, OnDestroy, HostBinding, Input} from '@angular/core';
-import {NgClass} from '@angular/common';
-import {NgTranscludeDirective} from '../common';
-import {TabDirective} from './tab.directive';
+import { Component, OnInit, OnDestroy, HostBinding, Input } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { NgTranscludeDirective } from '../common';
+import { TabDirective } from './tab.directive';
 // todo: add active event to tab
 // todo: fix? mixing static and dynamic tabs position tabs in order of creation
 @Component({

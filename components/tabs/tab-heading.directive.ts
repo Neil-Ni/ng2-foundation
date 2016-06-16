@@ -1,5 +1,5 @@
-import {Directive, TemplateRef} from '@angular/core';
-import {TabDirective} from './tab.directive';
+import { Directive, TemplateRef } from '@angular/core';
+import { TabDirective } from './tab.directive';
 
 @Directive({selector: '[tabHeading]'})
 export class TabHeadingDirective {
