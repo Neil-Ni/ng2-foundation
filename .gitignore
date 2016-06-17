@@ -27,3 +27,5 @@ ng2-foundation.js
 ng2-foundation.d.ts
 ng2-foundation.js.map
 /logs
+
+.DS_Store
