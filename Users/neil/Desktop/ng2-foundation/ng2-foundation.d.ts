@@ -5,6 +5,7 @@ export * from './components/accordion';
 export * from './components/alert';
 export * from './components/buttons';
 export * from './components/collapse';
+export * from './components/dropdown';
 export * from './components/pagination';
 export * from './components/progressbar';
 export * from './components/rating';
