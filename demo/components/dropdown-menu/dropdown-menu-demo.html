@@ -1,0 +1,99 @@
+<div (click)="$event.preventDefault()">
+  <h2>Horizontal menu</h2>
+  <span dropdown>
+    <ul class="dropdown menu" dropdownMenu>
+      <li>
+        <a tabindex="0">Item 1</a>
+        <ul class="menu">
+          <li><a href="#">Item 1A</a></li>
+          <li>
+            <a href="#">Item 1B</a>
+            <ul class="menu">
+              <li><a href="#">Item 1B i</a></li>
+              <li><a href="#">Item 1B ii</a></li>
+              <li>
+                <a href="#">Item 1B iii</a>
+                <ul class="menu">
+                  <li><a href="#">Item 1B iii alpha</a></li>
+                  <li><a href="#">Item 1B iii omega</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Item 1B iv</a>
+                <ul class="menu">
+                  <li><a href="#">Item 1B iv alpha</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Item 1C</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 2</a>
+        <ul class="menu">
+          <li><a href="#">Item 2A</a></li>
+          <li><a href="#">Item 2B</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Item 3</a></li>
+      <li><a href="#">Item 4</a></li>
+    </ul>
+  </span>
+
+  <h2>Vertical menu</h2>
+
+  <span dropdown>
+    <ul class="vertical dropdown menu" dropdownMenu style="max-width: 300px;">
+      <li>
+        <a href="#" tabindex="0">Item 1</a>
+        <ul class="menu">
+          <li><a href="#">Item 1A Loooong</a></li>
+          <li><a href="#">Item 1B</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 2</a>
+        <ul class="menu">
+          <li><a href="#">Item 2A</a></li>
+          <li><a href="#">Item 2B</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 3</a>
+        <ul class="menu">
+          <li><a href="#">Item 3A</a></li>
+          <li><a href="#">Item 3B</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 1</a>
+        <ul class="menu">
+          <li><a href="#">Item 1A Loooong</a></li>
+          <li>
+            <a href="#"> Item 1 sub</a>
+            <ul class="menu">
+              <li><a href="#">Item 1 subA</a></li>
+              <li><a href="#">Item 1 subB</a></li>
+              <li>
+                <a href="#"> Item 1 sub</a>
+                <ul class="menu">
+                  <li><a href="#">Item 1 subA</a></li>
+                  <li><a href="#">Item 1 subB</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#"> Item 1 sub</a>
+                <ul class="menu">
+                  <li><a href="#">Item 1 subA</a></li>
+                  <li><a href="#">Item 1 subB</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Item 1B</a></li>
+        </ul>
+      </li>
+    </ul>
+  </span>
+</div>
