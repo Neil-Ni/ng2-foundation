@@ -1,0 +1,45 @@
+ <!--Simple dropdown -->
+<span dropdown (on-toggle)="toggled($event)">
+  <a href dropdownToggle>
+    Click me for a dropdown, yo!
+  </a>
+
+  <div dropdownTogglePane>
+    <pane class="menu vertical">
+      <li *ngFor="let choice of items">
+        <a class="dropdown-item" href="#">{{choice}}</a>
+      </li>
+    </pane>
+  </div>
+</span>
+
+
+<span dropdown (on-toggle)="toggled($event)">
+  <a href class="dropdown button large" dropdownToggle>
+    dropdown-toggles can also have links!
+  </a>
+
+  <div pane-align="right" dropdownTogglePane>
+    <pane class="menu vertical">
+      <li *ngFor="let item of linkItems">
+        <a href="{{item.url}}" target="_blank">{{item.label}}</a>
+      </li>
+    </pane>
+  </div>
+</span>
+
+<!--<div class="button-group" dropdown (on-toggle)="toggled($event)">-->
+  <!--<a class="button">Primary Action</a>-->
+  <!--<a class="dropdown button arrow-only" dropdownToggle>-->
+    <!--<span class="show-for-sr">Show menu</span>-->
+  <!--</a>-->
+  <!--<div dropdownTogglePane pane-align="center">-->
+    <!--<pane>-->
+      <!--<ul class="menu vertical">-->
+        <!--<li *ngFor="let choice of items">-->
+          <!--<a>{{choice}}</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</pane>-->
+  <!--</div>-->
+<!--</div>-->
