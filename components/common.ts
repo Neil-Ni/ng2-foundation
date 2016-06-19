@@ -8,6 +8,7 @@ export interface KeyAttribute {
   selector: '[ngTransclude]',
   properties: ['ngTransclude']
 })
+
 export class NgTranscludeDirective {
   public viewRef:ViewContainerRef;
 
