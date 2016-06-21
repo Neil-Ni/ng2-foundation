@@ -10,6 +10,8 @@ const MouseEvent = (global as any).MouseEvent as MouseEvent;
 
 @Directive({selector: '[dropdownToggle]'})
 export class DropdownToggleDirective implements OnInit {
+  @Input() public hoverEnabled:boolean = false;
+
   @HostBinding('class.disabled')
   @Input() public disabled:boolean = false;
 
@@ -39,6 +41,26 @@ export class DropdownToggleDirective implements OnInit {
 
     if (!this.disabled) {
       this.dropdown.toggle();
+    }
+    return false;
+  }
+
+  @HostListener('mouseover', ['$event'])
+  public mouseoverDropdown(event:MouseEvent):boolean {
+    event.stopPropagation();
+
+    if (this.hoverEnabled) {
+      this.dropdown.toggle(true);
+    }
+    return false;
+  }
+
+  @HostListener('mouseleave', ['$event'])
+  public mouseleaveDropdown(event:MouseEvent):boolean {
+    event.stopPropagation();
+
+    if (this.hoverEnabled) {
+      this.dropdown.toggle(false);
     }
     return false;
   }

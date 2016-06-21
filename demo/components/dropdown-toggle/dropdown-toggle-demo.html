@@ -1,4 +1,4 @@
- <!--Simple dropdown -->
+<!--Simple dropdown -->
 <span dropdown (on-toggle)="toggled($event)">
   <a href dropdownToggle>
     Click me for a dropdown, yo!
@@ -12,7 +12,6 @@
     </pane>
   </div>
 </span>
-
 
 <span dropdown (on-toggle)="toggled($event)">
   <a href class="dropdown button large" dropdownToggle>
@@ -28,18 +27,33 @@
   </div>
 </span>
 
-<!--<div class="button-group" dropdown (on-toggle)="toggled($event)">-->
-  <!--<a class="button">Primary Action</a>-->
-  <!--<a class="dropdown button arrow-only" dropdownToggle>-->
-    <!--<span class="show-for-sr">Show menu</span>-->
-  <!--</a>-->
-  <!--<div dropdownTogglePane pane-align="center">-->
-    <!--<pane>-->
-      <!--<ul class="menu vertical">-->
-        <!--<li *ngFor="let choice of items">-->
-          <!--<a>{{choice}}</a>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</pane>-->
-  <!--</div>-->
-<!--</div>-->
+<div dropdown (on-toggle)="toggled($event)">
+  <a class="dropdown button" dropdownToggle>
+    Primary Action
+    <span class="show-for-sr">Show menu</span>
+  </a>
+  <div dropdownTogglePane pane-align="center">
+    <pane>
+      <ul class="menu vertical">
+        <li *ngFor="let choice of items">
+          <a>{{choice}}</a>
+        </li>
+      </ul>
+    </pane>
+  </div>
+</div>
+
+<div dropdown>
+  <a class="dropdown button large" dropdownToggle [hoverEnabled]="true">
+    Hover over me!
+  </a>
+  <div dropdownTogglePane pane-align="center">
+    <pane>
+      <ul class="menu vertical">
+        <li *ngFor="let choice of items">
+          <a>{{choice}}</a>
+        </li>
+      </ul>
+    </pane>
+  </div>
+</div>

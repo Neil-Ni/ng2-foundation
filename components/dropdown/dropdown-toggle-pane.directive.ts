@@ -19,24 +19,35 @@ export class DropdownTogglePaneDirective implements OnInit {
     this.dropdown.dropDownMenu = this;
     this.alignment = this.el.nativeElement.getAttribute('pane-align');
     this.renderer.setElementClass(this.el.nativeElement, `dropdown-pane`, true);
+  }
 
-    let position = positionService.position(this.el.nativeElement.parentElement);
-    this.renderer.setElementStyle(this.el.nativeElement, 'top', `${position.top} + ${position.height}px`);
-
+  ngAfterViewChecked() {
     switch (this.alignment) {
       case 'center':
-        this.renderer.setElementClass(this.el.nativeElement, `dropdown-pane-${this.alignment}`, true);
-        this.renderer.setElementStyle(this.el.nativeElement, 'left', `${position.left + (position.width / 2)}px`);
-        this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-50%)');
-        break;
       case 'right':
         this.renderer.setElementClass(this.el.nativeElement, `dropdown-pane-${this.alignment}`, true);
-        this.renderer.setElementStyle(this.el.nativeElement, 'left', `${position.left + (position.width)}px`);
-        this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-100%)');
         break;
-      case 'left':
-        this.renderer.setElementStyle(this.el.nativeElement, 'left', `${position.left}px`);
-        break;
+    }
+
+    let button:HTMLElement = this.el.nativeElement.parentElement.children[0];
+
+    if (button) {
+      let elePosition = positionService.position(this.el.nativeElement);
+      let buttonPosition = positionService.position(button);
+      this.renderer.setElementStyle(this.el.nativeElement, 'top', `${buttonPosition.top + buttonPosition.height + 2}px`);
+
+      switch (this.alignment) {
+        case 'center':
+          if (elePosition.width < buttonPosition.width ) {
+            this.renderer.setElementStyle(this.el.nativeElement, 'left', `${buttonPosition.left + buttonPosition.width / 2 }px`);
+            this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-50%)');
+          }
+          break;
+        case 'right':
+          this.renderer.setElementStyle(this.el.nativeElement, 'left', `${buttonPosition.left + buttonPosition.width}px`);
+          this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-100%)');
+          break;
+      }
     }
   }
 
