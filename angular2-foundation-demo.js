@@ -28944,6 +28944,7 @@ webpackJsonp([1],[
 	var MouseEvent = lang_1.global.MouseEvent;
 	var DropdownToggleDirective = (function () {
 	    function DropdownToggleDirective(dropdown, el) {
+	        this.hoverEnabled = false;
 	        this.disabled = false;
 	        this.addClass = true;
 	        this.dropdown = dropdown;
@@ -28966,6 +28967,24 @@ webpackJsonp([1],[
 	        }
 	        return false;
 	    };
+	    DropdownToggleDirective.prototype.mouseoverDropdown = function (event) {
+	        event.stopPropagation();
+	        if (this.hoverEnabled) {
+	            this.dropdown.toggle(true);
+	        }
+	        return false;
+	    };
+	    DropdownToggleDirective.prototype.mouseleaveDropdown = function (event) {
+	        event.stopPropagation();
+	        if (this.hoverEnabled) {
+	            this.dropdown.toggle(false);
+	        }
+	        return false;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], DropdownToggleDirective.prototype, "hoverEnabled", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.disabled'),
 	        core_1.Input(), 
@@ -28986,6 +29005,18 @@ webpackJsonp([1],[
 	        __metadata('design:paramtypes', [Object]), 
 	        __metadata('design:returntype', Boolean)
 	    ], DropdownToggleDirective.prototype, "toggleDropdown", null);
+	    __decorate([
+	        core_1.HostListener('mouseover', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', Boolean)
+	    ], DropdownToggleDirective.prototype, "mouseoverDropdown", null);
+	    __decorate([
+	        core_1.HostListener('mouseleave', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', Boolean)
+	    ], DropdownToggleDirective.prototype, "mouseleaveDropdown", null);
 	    DropdownToggleDirective = __decorate([
 	        core_1.Directive({ selector: '[dropdownToggle]' }),
 	        __param(0, core_1.Host()), 
@@ -38325,7 +38356,7 @@ webpackJsonp([1],[
 /* 337 */
 /***/ function(module, exports) {
 
-	module.exports = " <!--Simple dropdown -->\n<span dropdown (on-toggle)=\"toggled($event)\">\n  <a href dropdownToggle>\n    Click me for a dropdown, yo!\n  </a>\n\n  <div dropdownTogglePane>\n    <pane class=\"menu vertical\">\n      <li *ngFor=\"let choice of items\">\n        <a class=\"dropdown-item\" href=\"#\">{{choice}}</a>\n      </li>\n    </pane>\n  </div>\n</span>\n\n\n<span dropdown (on-toggle)=\"toggled($event)\">\n  <a href class=\"dropdown button large\" dropdownToggle>\n    dropdown-toggles can also have links!\n  </a>\n\n  <div pane-align=\"right\" dropdownTogglePane>\n    <pane class=\"menu vertical\">\n      <li *ngFor=\"let item of linkItems\">\n        <a href=\"{{item.url}}\" target=\"_blank\">{{item.label}}</a>\n      </li>\n    </pane>\n  </div>\n</span>\n\n<!--<div class=\"button-group\" dropdown (on-toggle)=\"toggled($event)\">-->\n  <!--<a class=\"button\">Primary Action</a>-->\n  <!--<a class=\"dropdown button arrow-only\" dropdownToggle>-->\n    <!--<span class=\"show-for-sr\">Show menu</span>-->\n  <!--</a>-->\n  <!--<div dropdownTogglePane pane-align=\"center\">-->\n    <!--<pane>-->\n      <!--<ul class=\"menu vertical\">-->\n        <!--<li *ngFor=\"let choice of items\">-->\n          <!--<a>{{choice}}</a>-->\n        <!--</li>-->\n      <!--</ul>-->\n    <!--</pane>-->\n  <!--</div>-->\n<!--</div>-->\n"
+	module.exports = "<!--Simple dropdown -->\n<span dropdown (on-toggle)=\"toggled($event)\">\n  <a href dropdownToggle>\n    Click me for a dropdown, yo!\n  </a>\n\n  <div dropdownTogglePane>\n    <pane class=\"menu vertical\">\n      <li *ngFor=\"let choice of items\">\n        <a class=\"dropdown-item\" href=\"#\">{{choice}}</a>\n      </li>\n    </pane>\n  </div>\n</span>\n\n<span dropdown (on-toggle)=\"toggled($event)\">\n  <a href class=\"dropdown button large\" dropdownToggle>\n    dropdown-toggles can also have links!\n  </a>\n\n  <div pane-align=\"right\" dropdownTogglePane>\n    <pane class=\"menu vertical\">\n      <li *ngFor=\"let item of linkItems\">\n        <a href=\"{{item.url}}\" target=\"_blank\">{{item.label}}</a>\n      </li>\n    </pane>\n  </div>\n</span>\n\n<div dropdown (on-toggle)=\"toggled($event)\">\n  <a class=\"dropdown button\" dropdownToggle>\n    Primary Action\n    <span class=\"show-for-sr\">Show menu</span>\n  </a>\n  <div dropdownTogglePane pane-align=\"center\">\n    <pane>\n      <ul class=\"menu vertical\">\n        <li *ngFor=\"let choice of items\">\n          <a>{{choice}}</a>\n        </li>\n      </ul>\n    </pane>\n  </div>\n</div>\n\n<div dropdown>\n  <a class=\"dropdown button large\" dropdownToggle [hoverEnabled]=\"true\">\n    Hover over me!\n  </a>\n  <div dropdownTogglePane pane-align=\"center\">\n    <pane>\n      <ul class=\"menu vertical\">\n        <li *ngFor=\"let choice of items\">\n          <a>{{choice}}</a>\n        </li>\n      </ul>\n    </pane>\n  </div>\n</div>\n"
 
 /***/ },
 /* 338 */
@@ -38802,22 +38833,31 @@ webpackJsonp([1],[
 	        this.dropdown.dropDownMenu = this;
 	        this.alignment = this.el.nativeElement.getAttribute('pane-align');
 	        this.renderer.setElementClass(this.el.nativeElement, "dropdown-pane", true);
-	        var position = position_1.positionService.position(this.el.nativeElement.parentElement);
-	        this.renderer.setElementStyle(this.el.nativeElement, 'top', position.top + " + " + position.height + "px");
+	    };
+	    DropdownTogglePaneDirective.prototype.ngAfterViewChecked = function () {
 	        switch (this.alignment) {
 	            case 'center':
-	                this.renderer.setElementClass(this.el.nativeElement, "dropdown-pane-" + this.alignment, true);
-	                this.renderer.setElementStyle(this.el.nativeElement, 'left', (position.left + (position.width / 2)) + "px");
-	                this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-50%)');
-	                break;
 	            case 'right':
 	                this.renderer.setElementClass(this.el.nativeElement, "dropdown-pane-" + this.alignment, true);
-	                this.renderer.setElementStyle(this.el.nativeElement, 'left', (position.left + (position.width)) + "px");
-	                this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-100%)');
 	                break;
-	            case 'left':
-	                this.renderer.setElementStyle(this.el.nativeElement, 'left', position.left + "px");
-	                break;
+	        }
+	        var button = this.el.nativeElement.parentElement.children[0];
+	        if (button) {
+	            var elePosition = position_1.positionService.position(this.el.nativeElement);
+	            var buttonPosition = position_1.positionService.position(button);
+	            this.renderer.setElementStyle(this.el.nativeElement, 'top', (buttonPosition.top + buttonPosition.height + 2) + "px");
+	            switch (this.alignment) {
+	                case 'center':
+	                    if (elePosition.width < buttonPosition.width) {
+	                        this.renderer.setElementStyle(this.el.nativeElement, 'left', (buttonPosition.left + buttonPosition.width / 2) + "px");
+	                        this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-50%)');
+	                    }
+	                    break;
+	                case 'right':
+	                    this.renderer.setElementStyle(this.el.nativeElement, 'left', (buttonPosition.left + buttonPosition.width) + "px");
+	                    this.renderer.setElementStyle(this.el.nativeElement, 'transform', 'translateX(-100%)');
+	                    break;
+	            }
 	        }
 	    };
 	    Object.defineProperty(DropdownTogglePaneDirective.prototype, "isOpen", {

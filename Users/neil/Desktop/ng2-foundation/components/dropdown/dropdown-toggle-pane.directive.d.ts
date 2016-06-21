@@ -7,5 +7,6 @@ export declare class DropdownTogglePaneDirective implements OnInit {
     private alignment;
     constructor(dropdown: DropdownDirective, el: ElementRef, renderer: Renderer);
     ngOnInit(): void;
+    ngAfterViewChecked(): void;
     isOpen: boolean;
 }

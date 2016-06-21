@@ -1,6 +1,7 @@
 import { ElementRef, OnInit } from '@angular/core';
 import { DropdownDirective } from './dropdown.directive';
 export declare class DropdownToggleDirective implements OnInit {
+    hoverEnabled: boolean;
     disabled: boolean;
     addClass: boolean;
     dropdown: DropdownDirective;
@@ -9,4 +10,6 @@ export declare class DropdownToggleDirective implements OnInit {
     ngOnInit(): void;
     isOpen: boolean;
     toggleDropdown(event: MouseEvent): boolean;
+    mouseoverDropdown(event: MouseEvent): boolean;
+    mouseleaveDropdown(event: MouseEvent): boolean;
 }
