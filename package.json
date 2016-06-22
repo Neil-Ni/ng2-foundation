@@ -1,6 +1,6 @@
 {
   "name": "ng2-foundation",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "angular2 foundation components",
   "scripts": {
     "flow.install:typings": "./node_modules/.bin/typings install",
