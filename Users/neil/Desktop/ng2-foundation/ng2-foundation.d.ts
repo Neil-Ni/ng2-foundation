@@ -10,6 +10,7 @@ export * from './components/pagination';
 export * from './components/progressbar';
 export * from './components/rating';
 export * from './components/tabs';
+export * from './components/tooltip';
 declare var _default: {
     directives: (any[] | typeof AlertComponent | typeof CollapseDirective | typeof RatingComponent)[];
     providers: undefined[];
