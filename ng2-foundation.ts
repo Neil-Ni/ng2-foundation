@@ -7,6 +7,7 @@ import { PAGINATION_DIRECTIVES }  from './components/pagination';
 import { PROGRESSBAR_DIRECTIVES } from './components/progressbar';
 import { RatingComponent }        from './components/rating';
 import { TAB_DIRECTIVES }         from './components/tabs';
+import { TOOLTIP_DIRECTIVES }     from './components/tooltip';
 
 export * from './components/accordion';
 export * from './components/alert';
@@ -17,6 +18,7 @@ export * from './components/pagination';
 export * from './components/progressbar';
 export * from './components/rating';
 export * from './components/tabs';
+export * from './components/tooltip';
 
 export default {
   directives: [
@@ -28,7 +30,8 @@ export default {
     PAGINATION_DIRECTIVES,
     PROGRESSBAR_DIRECTIVES,
     RatingComponent,
-    TAB_DIRECTIVES
+    TAB_DIRECTIVES,
+    TOOLTIP_DIRECTIVES
   ],
   providers: []
 };

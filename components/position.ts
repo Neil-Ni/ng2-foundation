@@ -75,28 +75,29 @@ export class PositionService {
     };
 
     let targetElPos:{top:number, left:number};
+    let offset = 11;
     switch (pos0) {
       case 'right':
         targetElPos = {
           top: shiftHeight[pos1](),
-          left: shiftWidth[pos0]()
+          left: shiftWidth[pos0]() + offset
         };
         break;
       case 'left':
         targetElPos = {
           top: shiftHeight[pos1](),
-          left: hostElPos.left - targetElWidth
+          left: hostElPos.left - targetElWidth - offset
         };
         break;
       case 'bottom':
         targetElPos = {
-          top: shiftHeight[pos0](),
+          top: shiftHeight[pos0]() + offset,
           left: shiftWidth[pos1]()
         };
         break;
       default:
         targetElPos = {
-          top: hostElPos.top - targetElHeight,
+          top: hostElPos.top - targetElHeight - offset,
           left: shiftWidth[pos1]()
         };
         break;
