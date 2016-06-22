@@ -8,6 +8,7 @@ import { PaginationDemoComponent }     from './components/pagination/pagination-
 import { ProgressbarDemoComponent }    from './components/progressbar/progressbar-demo';
 import { RatingDemoComponent }         from './components/rating/rating-demo';
 import { TabsDemoComponent }           from './components/tabs/tabs-demo';
+import { TooltipDemoComponent }        from './components/tooltip/tooltip-demo';
 import { SectionComponent }            from './components/section/section.component';
 
 @Component({
@@ -22,6 +23,7 @@ import { SectionComponent }            from './components/section/section.compon
     ProgressbarDemoComponent,
     RatingDemoComponent,
     TabsDemoComponent,
+    TooltipDemoComponent,
     SectionComponent
   ],
   template: require('./app.component.html')
